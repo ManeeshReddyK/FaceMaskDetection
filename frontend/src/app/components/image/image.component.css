@@ -1,0 +1,10 @@
+.custom-image {
+  width: 400px;
+  height: 350px;
+  display: block;
+}
+
+.btn {
+  box-shadow: none !important;
+  border-radius: 45px;
+}

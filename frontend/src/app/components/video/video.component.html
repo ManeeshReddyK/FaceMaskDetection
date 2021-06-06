@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row text-center" style="margin-top: 80px;">
+    <div class="col-md text-info">
+      <ng-container *ngIf="!flag">
+        <label><b></b></label>
+        <img [src]="inputImgSrc" class="custom-image mx-auto" />
+      </ng-container>
+
+      <ng-container *ngIf="flag">
+        <label><b>Streaming Video</b></label>
+        <img [src]="videoUrl" class="custom-image mx-auto" />
+      </ng-container>
+
+      <button class="btn btn-lg btn-success mt-5 pl-5 pr-5 mr-3" (click)="onCamera()" [disabled]="on">ON</button>
+      <button class="btn btn-lg btn-danger mt-5 pl-5 pr-5 ml-3" (click)="offCamera()" [disabled]="!on">OFF</button>
+
+    </div>
+  </div>
+</div>
