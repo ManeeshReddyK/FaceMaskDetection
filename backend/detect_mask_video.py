@@ -82,7 +82,7 @@ def gen_frames():
         yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 
-def predict_mask_an_image(image):
+def predict_mask_of_image(image):
     pillow_img = pimg.open(io.BytesIO(image))
     pillow_img.save("request"+'.jpg')
     image = cv2.imread('request.jpg')
@@ -104,7 +104,7 @@ def video_release():
 @app.route('/image_feed', methods=['POST'])
 def face_mask_detection():
     file = request.files['Image'].read()
-    tagged_image = predict_mask_an_image(file)
+    tagged_image = predict_mask_of_image(file)
     cv2.imwrite("response.png", tagged_image)
     pillow_img = pimg.open("response.png")
     img_io = io.BytesIO()
